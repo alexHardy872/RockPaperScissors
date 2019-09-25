@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RockPaperScissors_1
+namespace RockPaperScissors
 {
     class MainClass
     {
