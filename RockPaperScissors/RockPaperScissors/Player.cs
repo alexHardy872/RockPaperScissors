@@ -8,14 +8,17 @@ namespace RockPaperScissors
     public abstract class Player
     {
 
-        public List<string> HandStates = new List<string>() {"rock", "paper", "scissors", "lizard", "spock"};
+        public List<string> HandStates;
         public string HandState;
         public string name;
+        public int score;
 
 
 
-        public Player()
+         public Player()
         {
+            score = 0;
+            HandStates = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
         }
 
 
