@@ -6,7 +6,7 @@ namespace RockPaperScissors
 {
     public class Comp : Player
     {
-
+        public int randomNum;
 
         public Comp()
         {
@@ -17,6 +17,16 @@ namespace RockPaperScissors
         {
             // RANDOMNUMBER
             // INTERPREY FROM LIST
+            int random = getRandomNum();
+            string selection = HandStates[random];
+            this.HandState = selection;
+        }
+
+        public int getRandomNum()
+        {
+            Random random = new Random();
+            int selection = random.Next(0, 4);
+            return selection;
         }
     }
 }

@@ -9,7 +9,8 @@ namespace RockPaperScissors
     {
 
         public List<string> HandStates = new List<string>() {"Rock", "Paper", "Scissors", "Lizard", "Spoc"};
-        string HandState;
+        public string HandState;
+        public string name;
 
 
 

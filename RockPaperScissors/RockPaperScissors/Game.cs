@@ -11,6 +11,7 @@ namespace RockPaperScissors
         Human playerTwo;
         Comp computer;
         string GameStyle;
+        int Round;
         string RoundOne;
         string RoundTwo;
         string RoundThree;
@@ -18,6 +19,9 @@ namespace RockPaperScissors
 
         public Game()
         {
+
+        Round = 1;
+
         }
 
 
@@ -43,14 +47,19 @@ namespace RockPaperScissors
                 ChooseGameStyle();
             }
 
-            PlayRound();
+            StartGame();
 
         }
 
         public void StartGame()
         {
+            playerOne = new Human( "PlayerOne");
+            playerOne.SelectHandState();
 
+            computer = new Comp();
+            computer.SelectHandState();
 
+            PlayRound();
         }
 
 
@@ -65,8 +74,12 @@ namespace RockPaperScissors
             Console.WriteLine("Shoot!");
             Thread.Sleep(500);
 
+            Console.WriteLine(" Player one chose " + playerOne.HandState + " the Computer chose " + computer.HandState);
 
-            // 3, 2, 1, SHOOT!
+
+
+
+            
         }
     }
 }

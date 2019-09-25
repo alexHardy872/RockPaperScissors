@@ -6,8 +6,12 @@ namespace RockPaperScissors
 {
     public class Human : Player
     {
-        public Human()
+
+
+
+        public Human(string nameIn)
         {
+            name = nameIn;
         }
 
 
@@ -15,6 +19,23 @@ namespace RockPaperScissors
         public override void SelectHandState()
         {
             // SELECTOR
+
+            Console.WriteLine(" Please type '"+HandStates[0]+ "' , '" + HandStates[1] + "' , '" + HandStates[2] + "' , '" + HandStates[3] + "' , '" + HandStates[4] + "'");
+            string choice = Console.ReadLine();
+
+
+            if (HandStates.Contains(choice) == true)
+            {
+                this.HandState = choice;
+            }
+            else
+            {
+                SelectHandState();
+            }
+            
+
         }
+
+
     }
 }
