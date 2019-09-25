@@ -8,8 +8,9 @@ namespace RockPaperScissors
     {
         public int randomNum;
 
-        public Comp()
+        public Comp(string nameIn)
         {
+            name = nameIn;
         }
 
 
