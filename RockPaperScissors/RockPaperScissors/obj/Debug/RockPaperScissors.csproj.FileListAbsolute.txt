@@ -1,0 +1,5 @@
+/Users/whardy1/Desktop/DevCodeCamp/week_03/RockPaperScissors/RockPaperScissors/RockPaperScissors/bin/Debug/RockPaperScissors.exe
+/Users/whardy1/Desktop/DevCodeCamp/week_03/RockPaperScissors/RockPaperScissors/RockPaperScissors/bin/Debug/RockPaperScissors.pdb
+/Users/whardy1/Desktop/DevCodeCamp/week_03/RockPaperScissors/RockPaperScissors/RockPaperScissors/obj/Debug/RockPaperScissors.csprojAssemblyReference.cache
+/Users/whardy1/Desktop/DevCodeCamp/week_03/RockPaperScissors/RockPaperScissors/RockPaperScissors/obj/Debug/RockPaperScissors.exe
+/Users/whardy1/Desktop/DevCodeCamp/week_03/RockPaperScissors/RockPaperScissors/RockPaperScissors/obj/Debug/RockPaperScissors.pdb

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+
 
 namespace RockPaperScissors
 {
@@ -6,7 +9,12 @@ namespace RockPaperScissors
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game newGame = new Game();
+            newGame.DisplayInstructions();
+
+
+
+
         }
     }
 }
