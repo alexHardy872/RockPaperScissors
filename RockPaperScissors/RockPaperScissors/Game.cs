@@ -72,8 +72,10 @@ namespace RockPaperScissors
 
         public void PlayRound()
         {
+            Console.Clear();
             Console.WriteLine("Round " + Round + "!");
-            Thread.Sleep(300);
+            Thread.Sleep(500);
+            Console.Clear();
             playerOne.SelectHandState();
             Console.Clear();
             opponent.SelectHandState();
@@ -296,7 +298,7 @@ namespace RockPaperScissors
             {
                 // P1 WIN
                 Console.WriteLine(playerOne.name + " won 2/3 rounds!");
-                playAgainPrompt();
+                PlayAgainPrompt();
             }
             else if (opponent.score == 2)
             {
@@ -309,13 +311,13 @@ namespace RockPaperScissors
             }
         }
 
-        public void playAgainPrompt()
+        public void PlayAgainPrompt()
         {
             Console.Write("Play again? ('yes') ot ('no') ");
             string input = Console.ReadLine();
             if (input.ToLower() == "yes")
             {
-
+                Console.Clear();
                 Game nextGame = new Game();
                 nextGame.ChooseGameStyle();
             }
@@ -323,11 +325,12 @@ namespace RockPaperScissors
             {
                 Console.WriteLine("Thanks for playing!");
                 Console.Clear();
+                System.Environment.Exit(0);
             }
             else
             {
                 Console.WriteLine("Not a valid response");
-                playAgainPrompt();
+                PlayAgainPrompt();
             }
         }
     }
