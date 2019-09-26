@@ -207,34 +207,10 @@ namespace RockPaperScissors
                 return false;
             }
 
-            
-
-            
-
-        
-
-
-           
 
 
 
-            /*
-            else
-            {
-                if (us == "rock")
-                {
-                    switch (op)
-                    {
-                        case "paper": // LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Paper covers Rock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name+" won the round!");
-                            Thread.Sleep(2000);
-                            break;
 
-    */
             
                       
         }
