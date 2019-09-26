@@ -3,10 +3,10 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="RockPaperScissors/Comp.cs">
     <Files>
       <File FileName="RockPaperScissors/Program.cs" Line="14" Column="12" />
-      <File FileName="RockPaperScissors/Game.cs" Line="328" Column="44" />
-      <File FileName="RockPaperScissors/Player.cs" Line="15" Column="1" />
-      <File FileName="RockPaperScissors/Human.cs" Line="12" Column="36" />
-      <File FileName="RockPaperScissors/Comp.cs" Line="18" Column="10" />
+      <File FileName="RockPaperScissors/Game.cs" />
+      <File FileName="RockPaperScissors/Player.cs" />
+      <File FileName="RockPaperScissors/Human.cs" />
+      <File FileName="RockPaperScissors/Comp.cs" Line="32" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
