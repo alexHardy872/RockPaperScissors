@@ -7,7 +7,6 @@ namespace RockPaperScissors
     public class Comp : Player
     {
         public int randomNum;
-
         public Comp(string nameIn)
         {
             name = nameIn;
@@ -18,12 +17,13 @@ namespace RockPaperScissors
         {
             // RANDOMNUMBER
             // INTERPREY FROM LIST
-            int random = getRandomNum();
+            int random = GetRandomNum();
             string selection = HandStates[random];
             this.HandState = selection;
+            SetGesture(selection);
         }
 
-        public int getRandomNum()
+        public int GetRandomNum()
         {
             Random random = new Random();
             int selection = random.Next(0, 4);

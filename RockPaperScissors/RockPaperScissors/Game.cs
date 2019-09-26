@@ -155,9 +155,7 @@ namespace RockPaperScissors
 
             Shoot321();
 
-          
-
-            Console.WriteLine(playerOne.name +" chose " + playerOne.HandState + " and "+opponent.name+" chose " + opponent.HandState);
+            Console.WriteLine(playerOne.name +" chose " + playerOne.gesture.name + " and "+opponent.name+" chose " + opponent.gesture.name);
             Console.WriteLine();
             Thread.Sleep(2000);
                         
@@ -165,19 +163,62 @@ namespace RockPaperScissors
 
 
 
-        public bool DetermineRoundWinner()
+        public bool DetermineRoundWinner() // RETURNS TRUE IF A TIE
         {
-            string us = playerOne.HandState;
-            string op = opponent.HandState;
 
 
 
-            if (us == op)
+
+
+            if (playerOne.gesture.name == opponent.gesture.name)
             {
-                Console.Write("It's a tie! Shoot again!");
-                Thread.Sleep(1500);
+                Console.WriteLine("It's a TIE! replay Round " + Round);
+                Thread.Sleep(1000);
                 return true;
             }
+
+            else
+            {
+                if (playerOne.gesture.defeats.Contains(opponent.gesture.name))
+                {
+
+                    playerOne.gesture.FindVerb(opponent.gesture.name);
+                    Console.WriteLine(playerOne.gesture.name +" "+ playerOne.gesture.verb+ " " + opponent.gesture.name+"!");
+                    Thread.Sleep(1000);
+                 
+                    playerOne.score += 1;
+                    Console.WriteLine("Player 1 wins");
+                    Thread.Sleep(1000);
+                    
+
+                }
+                else if (opponent.gesture.defeats.Contains(playerOne.gesture.name))
+                {
+
+                    opponent.gesture.FindVerb(playerOne.gesture.name);
+                    Console.WriteLine(opponent.gesture.name + " " + opponent.gesture.verb + " " +playerOne.gesture.name+"!" );
+                    Thread.Sleep(1000);
+                  
+                    opponent.score += 1;
+                    Console.WriteLine("Player 2 wins");
+                    Thread.Sleep(1000);
+                }
+
+                return false;
+            }
+
+            
+
+            
+
+        
+
+
+           
+
+
+
+            /*
             else
             {
                 if (us == "rock")
@@ -192,190 +233,10 @@ namespace RockPaperScissors
                             Console.WriteLine(opponent.name+" won the round!");
                             Thread.Sleep(2000);
                             break;
-                        case "scissors":
-                            playerOne.score += 1;
-                            Console.WriteLine("Rock crushes Scissors!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name+" won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "lizard":
-                            playerOne.score += 1;
-                            Console.WriteLine("Rock crushes Lizard!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "spock": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Spock vaporizes Rock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                    }
-                }
-                else if (us == "paper")
-                {
-                    switch (op)
-                    {
-                        case "rock":
-                            playerOne.score += 1;
-                            Console.WriteLine("Paper covers Rock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "scissors": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Scissors cuts Paper!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "lizard": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Lizard eats Paper!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "spock":
-                            playerOne.score += 1;
-                            Console.WriteLine("Paper disproves Spock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                    }
-                }
-                else if (us == "scissors")
-                {
-                    switch (op)
-                    {
-                        case "rock": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Rock crushes Scissors!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "paper":
-                            playerOne.score += 1;
-                            Console.WriteLine("Scissors cuts Paper!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "lizard":
-                            playerOne.score += 1;
-                            Console.WriteLine("Scissors decapitates Lizard!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "spock": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Spock smashes Scissors!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                    }
-                }
-                else if (us == "lizard")
-                {
-                    switch (op)
-                    {
-                        case "rock": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Rock crushes Lizard!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "scissors": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Scissors decapitates Lizard!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "paper":
-                            playerOne.score += 1;
-                            Console.WriteLine("Lizard eats Paper!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "spock":
-                            playerOne.score += 1;
-                            Console.WriteLine("Lizard poisens Spock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                    }
-                }
-                else if (us == "spock")
-                {
-                    switch (op)
-                    {
-                        case "rock":
-                            playerOne.score += 1;
-                            Console.WriteLine("Spock vapoizes Rock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "scissors":
-                            playerOne.score += 1;
-                            Console.WriteLine("Spock smashes scissors!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(playerOne.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "lizard": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Lizard poisens Spock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                        case "paper": //LOSE
-                            opponent.score += 1;
-                            Console.WriteLine("Paper disproves Spock!");
-                            Thread.Sleep(2000);
-                            Console.WriteLine("");
-                            Console.WriteLine(opponent.name + " won the round!");
-                            Thread.Sleep(2000);
-                            break;
-                    }
 
-                    
-                }
-
-                return false;
-            } 
-
+    */
+            
+                      
         }
 
         public void DetermineWinner()
