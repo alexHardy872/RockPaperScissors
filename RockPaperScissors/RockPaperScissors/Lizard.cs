@@ -26,7 +26,7 @@ namespace RockPaperScissors
             }
             else if (enemy == defeats[1])
             {
-                verb = "poisens";
+                verb = "poisons";
             }
         }
 

@@ -79,7 +79,7 @@ namespace RockPaperScissors
             Thread.Sleep(1000);
             Console.WriteLine("ROCK CRUSHES LIZARD");
             Thread.Sleep(1000);
-            Console.WriteLine("LIZARD POISENS SPOCK");
+            Console.WriteLine("LIZARD POISONS SPOCK");
             Thread.Sleep(1000);
             Console.WriteLine("SPOCK SMASHES SCISSORS");
             Thread.Sleep(1000);
@@ -187,20 +187,20 @@ namespace RockPaperScissors
                     Thread.Sleep(1000);
                  
                     playerOne.score += 1;
-                    Console.WriteLine("Player 1 wins");
+                    Console.WriteLine(playerOne.name+" wins");
                     Thread.Sleep(1000);
                     
 
                 }
                 else if (opponent.gesture.defeats.Contains(playerOne.gesture.name))
                 {
-
+                    
                     opponent.gesture.FindVerb(playerOne.gesture.name);
                     Console.WriteLine(opponent.gesture.name + " " + opponent.gesture.verb + " " +playerOne.gesture.name+"!" );
                     Thread.Sleep(1000);
                   
                     opponent.score += 1;
-                    Console.WriteLine("Player 2 wins");
+                    Console.WriteLine(opponent.name+" wins");
                     Thread.Sleep(1000);
                 }
 
@@ -237,7 +237,7 @@ namespace RockPaperScissors
         {
             
             
-            Console.Write("Play again? ('yes') ot ('no') ");
+            Console.Write("Play again? ('yes') or ('no') ");
             string input = Console.ReadLine();
 
             while (input != "yes" && input != "no")
