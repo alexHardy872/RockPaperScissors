@@ -36,6 +36,12 @@
     <Compile Include="Player.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Comp.cs" />
+    <Compile Include="Gestures.cs" />
+    <Compile Include="Rock.cs" />
+    <Compile Include="Paper.cs" />
+    <Compile Include="Scissors.cs" />
+    <Compile Include="Lizard.cs" />
+    <Compile Include="Spock.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

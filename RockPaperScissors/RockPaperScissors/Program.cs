@@ -10,7 +10,7 @@ namespace RockPaperScissors
         public static void Main(string[] args)
         {
             Game newGame = new Game();
-            newGame.DisplayInstructions();
+            newGame.StartGame();
            
 
 

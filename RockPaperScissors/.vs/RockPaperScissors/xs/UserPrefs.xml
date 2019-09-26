@@ -1,19 +1,25 @@
 ﻿<Properties StartupConfiguration="{1AABA8F0-AF69-4481-8843-F6610C6850A7}|Default">
   <MonoDevelop.Ide.ItemProperties.RockPaperScissors PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RockPaperScissors/Comp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RockPaperScissors/Spock.cs">
     <Files>
-      <File FileName="RockPaperScissors/Program.cs" Line="14" Column="12" />
-      <File FileName="RockPaperScissors/Game.cs" />
-      <File FileName="RockPaperScissors/Player.cs" />
-      <File FileName="RockPaperScissors/Human.cs" />
-      <File FileName="RockPaperScissors/Comp.cs" Line="32" Column="6" />
+      <File FileName="RockPaperScissors/Program.cs" Line="13" Column="30" />
+      <File FileName="RockPaperScissors/Game.cs" Line="184" Column="18" />
+      <File FileName="RockPaperScissors/Player.cs" Line="25" Column="1" />
+      <File FileName="RockPaperScissors/Human.cs" Line="16" Column="1" />
+      <File FileName="RockPaperScissors/Comp.cs" Line="14" Column="10" />
+      <File FileName="RockPaperScissors/Gestures.cs" Line="1" Column="1" />
+      <File FileName="RockPaperScissors/Rock.cs" Line="1" Column="1" />
+      <File FileName="RockPaperScissors/Paper.cs" Line="1" Column="1" />
+      <File FileName="RockPaperScissors/Scissors.cs" Line="1" Column="1" />
+      <File FileName="RockPaperScissors/Lizard.cs" Line="1" Column="1" />
+      <File FileName="RockPaperScissors/Spock.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RockPaperScissors" expanded="True">
             <Node name="RockPaperScissors" expanded="True">
-              <Node name="Comp.cs" selected="True" />
+              <Node name="Spock.cs" selected="True" />
             </Node>
           </Node>
         </State>

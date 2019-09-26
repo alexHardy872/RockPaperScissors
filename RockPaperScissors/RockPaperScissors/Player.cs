@@ -26,7 +26,7 @@ namespace RockPaperScissors
 
         public void Shoot()
         {
-
+            
         }
 
         public abstract void SelectHandState();

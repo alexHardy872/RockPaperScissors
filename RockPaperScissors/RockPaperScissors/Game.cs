@@ -11,6 +11,7 @@ namespace RockPaperScissors
         public Player opponent;
         string GameStyle;
         int Round;
+        bool playAgain;
         
        
 
@@ -18,10 +19,50 @@ namespace RockPaperScissors
         public Game()
         {
             Round = 1;
+            playAgain = true;
         
 
         }
 
+        public void StartGame()
+        {
+            DisplayInstructions();
+
+            do
+            {
+                RunGame();
+            }
+            while (playAgain == true);
+            
+        }
+
+        public void RunGame()
+        {
+            ChooseGameStyle();
+            EstablishPlayers();
+
+            do
+            {
+                PlayRound();
+               bool isTie = DetermineRoundWinner();
+
+                if (isTie == false)
+                {
+                    Round += 1;
+
+                }
+
+            }
+            while (playerOne.score < 2 && opponent.score < 2);
+
+
+
+            DetermineWinner();
+            PlayAgainPrompt(); 
+
+
+
+        }
 
 
         public void DisplayInstructions()
@@ -29,46 +70,31 @@ namespace RockPaperScissors
             Console.WriteLine("WELCOME TO ROCK-PAPER-SCISSORS-LIZARD-SPOCK!");
             Thread.Sleep(2000);
             Console.WriteLine("");
-
             Console.WriteLine("HOW TO PLAY:");
             Thread.Sleep(1000);
             Console.WriteLine("");
-
             Console.WriteLine("SCISSORS CUTS PAPER");
             Thread.Sleep(1000);
-
             Console.WriteLine("PAPER COVERS ROCK");
             Thread.Sleep(1000);
-
             Console.WriteLine("ROCK CRUSHES LIZARD");
             Thread.Sleep(1000);
-
             Console.WriteLine("LIZARD POISENS SPOCK");
             Thread.Sleep(1000);
-
             Console.WriteLine("SPOCK SMASHES SCISSORS");
             Thread.Sleep(1000);
-
-
             Console.WriteLine("SCISSORS DECAPITATES LIZARD");
             Thread.Sleep(1000);
-
-
             Console.WriteLine("LIZARD EATS PAPER");
             Thread.Sleep(1000);
-
             Console.WriteLine("PAPER DISPROVES SPOCK");
             Thread.Sleep(1000);
             Console.WriteLine("");
-
             Console.Write("AND AS IT ALWAYS HAS.....");
             Thread.Sleep(1200);
-
             Console.WriteLine("ROCK CRUSHES SCISSORS");
             Thread.Sleep(1000);
             Console.WriteLine("");
-
-            ChooseGameStyle();
         }
 
         public void ChooseGameStyle()
@@ -84,46 +110,33 @@ namespace RockPaperScissors
             {
                 Console.WriteLine(answer + " is NOT a valid input!");
                 ChooseGameStyle();
-            }
-
-            StartGame();
-
+            }          
         }
 
-        public void StartGame()
+
+        public void EstablishPlayers()
         {
-           
-           
-            if (GameStyle == "sim")
-            {
-                playerOne = new Comp("Computer 1");
 
-            } else
+            switch (GameStyle)
             {
-                playerOne = new Human("Player 1");
+                case "sim":
+                    playerOne = new Comp("Computer 1");
+                    opponent = new Comp("Computer 2");
+                    break;
+                case "comp":
+                    playerOne = new Human("Player 1");
+                    opponent = new Comp("Computer");
+                    break;
+                case "human":
+                    playerOne = new Human("Player 1");
+                    opponent = new Human("Player 2");
+                    break;
             }
-
-
-
-            if (GameStyle == "comp")
-            {
-                opponent = new Comp("Computer");
-            }
-            else if (GameStyle == "human")
-            {
-                opponent = new Human("Player 2");
-            }
-            else if (GameStyle == "sim")
-            {
-                opponent = new Comp("Computer 2");
-            }
-
-
-            
-
-            PlayRound();
         }
 
+
+
+     
 
         public void PlayRound()
         {
@@ -140,31 +153,19 @@ namespace RockPaperScissors
             Console.Clear();
             Thread.Sleep(500);
 
-            Console.WriteLine("3");
-            Thread.Sleep(500);
-            Console.Clear();
-            Console.WriteLine("2");
-            Thread.Sleep(500);
-            Console.Clear();
-            Console.WriteLine("1");
-            Thread.Sleep(500);
-            Console.Clear();
-            Console.WriteLine("Shoot!");
-            Thread.Sleep(500);
-            Console.Clear();
+            Shoot321();
+
+          
 
             Console.WriteLine(playerOne.name +" chose " + playerOne.HandState + " and "+opponent.name+" chose " + opponent.HandState);
             Console.WriteLine();
             Thread.Sleep(2000);
-            DeterminWinner();
-
-
-            
+                        
         }
 
 
 
-        public void DeterminWinner()
+        public bool DetermineRoundWinner()
         {
             string us = playerOne.HandState;
             string op = opponent.HandState;
@@ -175,7 +176,7 @@ namespace RockPaperScissors
             {
                 Console.Write("It's a tie! Shoot again!");
                 Thread.Sleep(1500);
-                PlayRound();
+                return true;
             }
             else
             {
@@ -368,58 +369,92 @@ namespace RockPaperScissors
                             Thread.Sleep(2000);
                             break;
                     }
+
+                    
                 }
 
-                
+                return false;
             } 
 
-
-            DetermineRoundWinner();
         }
 
-        public void DetermineRoundWinner()
+        public void DetermineWinner()
         {
             if (playerOne.score == 2)
             {
                 // P1 WIN
                 Console.WriteLine(playerOne.name + " won 2/3 rounds!");
-                PlayAgainPrompt();
             }
             else if (opponent.score == 2)
             {
                 // P2 WIN
                 Console.WriteLine(opponent.name + " won 2/3 rounds!");
-                PlayAgainPrompt();
-
             }
             else
             {
-                Round += 1;
-                PlayRound();
+                Round += 1;              
             }
         }
 
         public void PlayAgainPrompt()
         {
+            
+            
             Console.Write("Play again? ('yes') ot ('no') ");
             string input = Console.ReadLine();
+
+            while (input != "yes" && input != "no")
+            {
+
+                Console.WriteLine("Not a valid response! Try again");
+                input = Console.ReadLine();
+            }
+
             if (input.ToLower() == "yes")
             {
                 Console.Clear();
-                Game nextGame = new Game();
-                nextGame.ChooseGameStyle();
+                Round = 1;
+                RunGame();
+
+                playAgain = true;
             }
             else if (input.ToLower() == "no")
             {
                 Console.WriteLine("Thanks for playing!");
+                Thread.Sleep(1000);
                 Console.Clear();
-                System.Environment.Exit(0);
+               
+                playAgain = false;
+                LeaveGame();
             }
-            else
-            {
-                Console.WriteLine("Not a valid response");
-                PlayAgainPrompt();
+          
+       
+
             }
+
+        public void Shoot321()
+        {
+            Console.WriteLine("3");
+            Thread.Sleep(500);
+            Console.Clear();
+            Console.WriteLine("2");
+            Thread.Sleep(500);
+            Console.Clear();
+            Console.WriteLine("1");
+            Thread.Sleep(500);
+            Console.Clear();
+            Console.WriteLine("Shoot!");
+            Thread.Sleep(500);
+            Console.Clear();
         }
+
+        public void LeaveGame()
+        {
+
+            System.Environment.Exit(0);
+        }
+
+
+        
     }
 }
